@@ -1,6 +1,36 @@
+/*Task 1 variant 1*/
+/**
+ * 
+ * @param {number} day - it's number from 1 to 31
+ */
+function calculateDecade(day) {
+  const decade = Math.floor((day - 1) / 10);
+  console.log(decade);
+  switch (decade) {
+    case 0:
+      console.log(`Day ${day} belongs first decade`);
+      break;
+    case 1:
+      console.log(`Day ${day} belongs second decade`);
+      break;
+    case 2:
+    case 3:
+      console.log(`Day ${day} belongs third decade`);
+      break;
+    default:
+      console.log(`Unknown date`);
+      break;
+  }
+}
 const day = 31;
+const favoriteDay = 17;
 
-switch (day) {
+for (let i = 1; i <= day; i++) {
+  calculateDecade(i);
+}
+
+/*Task 1 variant 2*/
+switch (favoriteDay) {
   case 1:
   case 2:
   case 3:
@@ -37,20 +67,26 @@ switch (day) {
   case 28:
   case 29:
   case 30:
-  case 31:{
+  case 31: {
     console.log("Third decade");
     break;
   }
-  default:{
+  default: {
     console.log("Invalid data");
     break;
   }
 }
 
-/*calculator*/
-
-function calculate(leftOperand, rightOperand, operand){
-  switch(operand){
+/*Task 2*/
+/**
+ * 
+ * @param {number} leftOperand 
+ * @param {number} rightOperand 
+ * @param {string} operand 
+ * @returns {number | null}
+ */
+function calculate(leftOperand, rightOperand, operand) {
+  switch (operand) {
     case "+":
       console.log("Do add");
       return leftOperand + rightOperand;
@@ -59,18 +95,25 @@ function calculate(leftOperand, rightOperand, operand){
       return leftOperand - rightOperand;
     case "*":
       console.log("Do mult");
-      return leftOperand * right-operand;
+      return leftOperand * rightOperand;
     case "/":
-      if(rightOperand === 0){
-        console.log("Divide by 0. Error!");
-        return null;
+      if (rightOperand === 0) {
+        console.log("Divide by 0. Return Infinity!");
+      }else{
+        console.log("Do divide");
       }
-      console.log("Do divide");
       return leftOperand / rightOperand;
     default:
-      console.log("unknow operator ", operator);
+      console.log("unknown operator ", operand);
       return null;
   }
 }
 
-console.log(calculate(10, 0, "/"));
+const leftValue = +prompt("Enter left value: ");
+const operand = prompt("Enter operand: ");
+const rightValue = +prompt("Enter right value: ");
+if(!isNaN(leftValue - rightValue)){
+  console.log( calculate(leftValue, rightValue, operand) );
+}else{
+  console.log("Invalid number");
+}
