@@ -5,7 +5,6 @@
  */
 function calculateDecade(day) {
   const decade = Math.floor((day - 1) / 10);
-  console.log(decade);
   switch (decade) {
     case 0:
       console.log(`Day ${day} belongs first decade`);
